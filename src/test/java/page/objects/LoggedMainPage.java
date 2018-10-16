@@ -37,6 +37,10 @@ public class LoggedMainPage {
     public void pickDogs() {
         dogImage.click();
     }
+
+    public void pickFish() {
+        fishImage.click();
+    }
     public void goToMainPage() {
         DriverManager.getWebDriver().navigate().to(mainPageURL);
     }
