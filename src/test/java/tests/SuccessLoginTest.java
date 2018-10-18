@@ -21,6 +21,7 @@ public class SuccessLoginTest extends BaseTest {
         WebElement dogGif = DriverManager.getWebDriver().findElement(By.cssSelector("img[src*='banner_dogs.gif']"));
         Assert.assertTrue(dogGif.isDisplayed());
 
+
     }
 
 }
