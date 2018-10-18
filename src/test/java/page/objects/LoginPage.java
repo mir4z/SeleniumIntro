@@ -1,11 +1,10 @@
 package page.objects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import util.DriverManager;
+import util.WaitForElement;
 
 public class LoginPage {
 
@@ -26,6 +25,7 @@ public class LoginPage {
     }
 
     public void inputUsername(String username) {
+        WaitForElement.waitUntilElementIsVisible(usernameField);
         this.usernameField.clear();
         this.usernameField.sendKeys(username);
     }
@@ -47,8 +47,7 @@ public class LoginPage {
         this.inputUsername("j2ee");
         this.inputPassword("j2ee");
         this.clickOnLoginButton();
-        WebElement dogGif = DriverManager.getWebDriver().findElement(By.cssSelector("img[src*='banner_dogs.gif']"));
-        Assert.assertTrue(dogGif.isDisplayed());
+
 
     }
 

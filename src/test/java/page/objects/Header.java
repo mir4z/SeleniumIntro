@@ -11,7 +11,6 @@ public class Header {
     private WebElement signOn;
 
     public Header() {
-
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
