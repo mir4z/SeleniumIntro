@@ -5,11 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.objects.LoggedMainPage;
-import page.objects.LoginPage;
-import util.DriverManager;
-import util.Login;
+import util.driver.DriverManager;
+import util.helperClasses.Login;
 
-public class addingToCart extends  BaseTest{
+public class ShoppingCartTests extends  BaseTest{
 
     @Test
     public void buyAFish() {
@@ -21,6 +20,7 @@ public class addingToCart extends  BaseTest{
         WebElement remove = DriverManager.getWebDriver().findElement(By.linkText("Remove"));
 
         Assert.assertTrue(remove.isDisplayed());
+        loggedMainPage.goToMainPage();
     }
 }
 

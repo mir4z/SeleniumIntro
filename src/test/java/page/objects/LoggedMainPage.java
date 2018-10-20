@@ -1,18 +1,21 @@
 package page.objects;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import util.DriverManager;
-import util.Login;
-import util.WaitForElement;
+import util.driver.DriverManager;
+import util.helperClasses.WaitForElement;
 
 public class LoggedMainPage {
+
     private String mainPageURL = "http://przyklady.javastart.pl/jpetstore/actions/Catalog.action";
+    private Logger logger = LogManager.getRootLogger();
+    private FooterPage footerPage;
 
-
-    @FindBy(css = "area[alt='Fish']")
+    @FindBy(css = "img[src*='sm_fish.gif']")
     private WebElement fishImage;
 
     @FindBy(xpath = "//area[@alt='Birds'][1]")
@@ -30,7 +33,7 @@ public class LoggedMainPage {
 
 
     public LoggedMainPage() {
-        Login.logIn();
+
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
@@ -44,6 +47,11 @@ public class LoggedMainPage {
     public void pickDogs() {
         WaitForElement.waitUntilElementIsVisible(dogImage);
         dogImage.click();
+    }
+
+    public void pickFish() {
+        WaitForElement.waitUntilElementIsVisible(fishImage);
+        fishImage.click();
     }
 
     public void goToMainPage() {

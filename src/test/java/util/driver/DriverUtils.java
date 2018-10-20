@@ -1,4 +1,4 @@
-package util;
+package util.driver;
 
 public class DriverUtils {
 

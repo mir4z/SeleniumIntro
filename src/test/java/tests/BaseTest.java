@@ -1,8 +1,8 @@
 package tests;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import util.DriverManager;
-import util.DriverUtils;
+import util.driver.DriverManager;
+import util.driver.DriverUtils;
 
 public class BaseTest {
     String mainPageURL ="http://przyklady.javastart.pl/jpetstore/actions/Catalog.action";

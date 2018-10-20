@@ -3,8 +3,8 @@ package page.objects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import util.DriverManager;
-import util.WaitForElement;
+import util.driver.DriverManager;
+import util.helperClasses.WaitForElement;
 
 public class FooterPage {
 
@@ -17,7 +17,7 @@ public class FooterPage {
 
     public boolean isBannerAfterLoginDisplayed() {
         WaitForElement.waitUntilElementIsVisible(dogBanner);
-        boolean isDisplayed = dogBanner.isDisplayed();
-        return isDisplayed;
+        return dogBanner.isDisplayed();
+
     }
 }

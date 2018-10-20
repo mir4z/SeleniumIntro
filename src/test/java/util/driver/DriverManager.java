@@ -1,16 +1,19 @@
-package util;
+package util.driver;
 
 import org.openqa.selenium.WebDriver;
+import util.BrowserFactory;
+import util.BrowserType;
 
-public class DriverManager {
+public enum DriverManager {
+    INSTANCE;
     private static WebDriver driver;
-    private final static BrowserType BROWSER_TYPE = BrowserType.FIREFOX;
-    public DriverManager() {
-    }
+    private final static BrowserType BROWSER_TYPE = BrowserType.CHROME;
+
 
     public static WebDriver getWebDriver() {
         if (driver == null) {
             driver = BrowserFactory.getBrowserDriver(BROWSER_TYPE);
+
         }
         return driver;
     }

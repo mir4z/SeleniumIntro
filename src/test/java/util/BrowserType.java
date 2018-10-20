@@ -11,4 +11,8 @@ public enum BrowserType {
         this.browser = browser;
 
     }
+
+    public String getValue() {
+        return this.browser;
+    }
 }

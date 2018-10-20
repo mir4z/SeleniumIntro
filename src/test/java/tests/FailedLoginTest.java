@@ -10,11 +10,11 @@ public class FailedLoginTest extends BaseTest {
     public void check() {
         Header header = new Header();
         LoginPage loginPage = header.goToLoginPage();
-        loginPage.inputUsername("mir4ge");
-        loginPage.inputPassword("test");
+        loginPage.passLoginInformation("mir4ge", "test");
         loginPage.clickOnLoginButton();
 
         Assert.assertEquals(loginPage.getEerrorMessage(), "Invalid username or password. Signon failed.");
-    }
 
+
+    }
 }
