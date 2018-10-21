@@ -24,27 +24,17 @@ public class LoggedMainPage {
     @FindBy(xpath = "//area[@alt='Birds'][2]")
     private WebElement birdSmallParrotImage;
 
-
     @FindBy(css = "img[src*='sm_dogs.gif']")
     private WebElement dogImage;
 
     @FindBy(css = "area[alt='Cats']")
     private WebElement catImage;
 
-
     public LoggedMainPage() {
-
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void checkDog() {
-        WaitForElement.waitUntilElementIsClickable(dogImage);
-        Assert.assertTrue(dogImage.isDisplayed());
-        dogImage.click();
-
-    }
-
-    public void pickDogs() {
+    public void clickDogImage() {
         WaitForElement.waitUntilElementIsVisible(dogImage);
         dogImage.click();
     }

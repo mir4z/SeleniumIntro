@@ -15,7 +15,7 @@ public class FooterPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public boolean isBannerAfterLoginDisplayed() {
+    public boolean  isBannerAfterLoginDisplayed() {
         WaitForElement.waitUntilElementIsVisible(dogBanner);
         return dogBanner.isDisplayed();
 

@@ -15,15 +15,11 @@ public class Header {
     @FindBy(css = "a[href*='signonForm']")
     private WebElement signOn;
 
-
-
     public LoginPage goToLoginPage() {
         signOn.click();
         logger.info("Clicked on sign on button. Go to login page");
         return new LoginPage();
     }
-
-
 
     public Header() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);

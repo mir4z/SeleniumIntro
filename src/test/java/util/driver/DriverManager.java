@@ -1,5 +1,6 @@
 package util.driver;
 
+import configuration.LocalWebDriverProperties;
 import org.openqa.selenium.WebDriver;
 import util.BrowserFactory;
 import util.BrowserType;
@@ -7,7 +8,7 @@ import util.BrowserType;
 public enum DriverManager {
     INSTANCE;
     private static WebDriver driver;
-    private final static BrowserType BROWSER_TYPE = BrowserType.CHROME;
+    private final static BrowserType BROWSER_TYPE = LocalWebDriverProperties.getLocalBrowser();
 
 
     public static WebDriver getWebDriver() {

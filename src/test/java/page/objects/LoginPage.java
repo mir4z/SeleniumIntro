@@ -15,7 +15,7 @@ public class LoginPage {
     private Logger logger = LogManager.getRootLogger();
     private String correctLogin = "j2ee";
     private String correctPassword = "j2ee";
-    private static int count = 0;
+
 
     @FindBy(name = "username")
     private WebElement usernameField;
@@ -30,7 +30,7 @@ public class LoginPage {
     private WebElement errorMessage;
 
     public LoginPage() {
-        System.out.println(count++);
+
         logger.info("You were succesfully redirected to login page");
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
@@ -44,7 +44,7 @@ public class LoginPage {
         return this;
     }
 
-     public LoginPage inputPassword(String password) {
+    public LoginPage inputPassword(String password) {
         this.passwordField.clear();
         this.passwordField.sendKeys(password);
         logger.info("Typed into password filed: " + password);
@@ -56,32 +56,30 @@ public class LoginPage {
         return this.errorMessage.getText();
     }
 
-    public LoggedMainPage clickOnLoginButton() {
+    public LoggedMainPage clickOnLoginButton(boolean expectedToLogin) {
         this.loginButton.click();
         logger.info("Clicked login button");
 
-        loginResult();
+        if(expectedToLogin) loginResult();
         return new LoggedMainPage();
 
     }
 
-    public void passLoginInformation(String username, String password) {
+    public void passLoginInformation(String username, String password, boolean expectedToLogin) {
 
         this.inputUsername(username);
         this.inputPassword(password);
-        this.clickOnLoginButton();
+        this.clickOnLoginButton(expectedToLogin);
 
 
     }
-
 
     public LoggedMainPage successfullLogin() {
         this.inputUsername(correctLogin);
         this.inputPassword(correctPassword);
-        return this.clickOnLoginButton();
+        return this.clickOnLoginButton(true);
 
     }
-
 
 
 }
