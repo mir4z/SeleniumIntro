@@ -8,12 +8,14 @@ import util.BrowserType;
 public enum DriverManager {
     INSTANCE;
     private static WebDriver driver;
-    private final static BrowserType BROWSER_TYPE = LocalWebDriverProperties.getLocalBrowser();
+    private final static BrowserType BROWSER_TYPE = LocalWebDriverProperties.getBrowser();
+    private final static boolean isRemoteRun = LocalWebDriverProperties.getIsRemoteRun();
 
 
     public static WebDriver getWebDriver() {
         if (driver == null) {
-            driver = BrowserFactory.getBrowserDriver(BROWSER_TYPE);
+            BrowserFactory browserFactory = new BrowserFactory(BROWSER_TYPE, isRemoteRun);
+            driver = browserFactory.getBrowser();
 
         }
         return driver;

@@ -4,8 +4,12 @@ import util.BrowserType;
 
 public class LocalWebDriverProperties {
 
-    public static BrowserType getLocalBrowser() {
-        return BrowserType.valueOf(ConfigurationProperties.getProperties().getProperty("local.browser"));
+    public static BrowserType getBrowser() {
+        return BrowserType.valueOf(ConfigurationProperties.getProperties().getProperty("browser"));
+    }
+
+    public static boolean getIsRemoteRun() {
+        return Boolean.parseBoolean(ConfigurationProperties.getProperties().getProperty("is.remote.run"));
     }
 
     public static String getChromeWebDriverLocation() {
@@ -19,5 +23,7 @@ public class LocalWebDriverProperties {
     public static String getEdgeWebDriverLocation() {
         return ConfigurationProperties.getProperties().getProperty("edge.driver.location");
     }
+
+
 
 }

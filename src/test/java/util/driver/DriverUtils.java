@@ -3,7 +3,6 @@ package util.driver;
 public class DriverUtils {
 
     public static void setInitialConfiguration() {
-
         DriverManager.getWebDriver().manage().window().maximize();
     }
 
