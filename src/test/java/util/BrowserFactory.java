@@ -70,7 +70,7 @@ public class BrowserFactory {
         RemoteWebDriver remoteWebDriver = null;
 
         try {
-            remoteWebDriver = new RemoteWebDriver(new URL("GRID_URL"), desiredCapabilities);
+            remoteWebDriver = new RemoteWebDriver(new URL(LocalWebDriverProperties.getGridAddress()), desiredCapabilities);
         } catch (MalformedURLException e) {
             e.printStackTrace();
             throw new RuntimeException("Failed to create RemoteWebDriver due to " + e.getMessage());

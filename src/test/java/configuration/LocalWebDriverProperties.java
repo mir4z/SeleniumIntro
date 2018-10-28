@@ -24,6 +24,9 @@ public class LocalWebDriverProperties {
         return ConfigurationProperties.getProperties().getProperty("edge.driver.location");
     }
 
+    public static String getGridAddress() {
+        return ConfigurationProperties.getProperties().getProperty("grid.url");
+    }
 
 
 }
